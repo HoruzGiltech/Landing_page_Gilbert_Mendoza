@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gilbert Mendoza | Ingeniero Backend & Gestor de Productividad con IA</title>
+    
+    <!-- Google Fonts Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        navy: {
+                            DEFAULT: '#1B3A5C',
+                            dark: '#0e1f33',
+                            light: '#254d7a'
+                        },
+                        electric: {
+                            DEFAULT: '#2E6DA4',
+                            bright: '#3b86cb',
+                            glow: '#60a5fa'
+                        },
+                        techCyan: '#00d2ff',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+        .tech-grid {
+            background-image: radial-gradient(rgba(46, 109, 164, 0.15) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #ffffff 0%, #a5f3fc 50%, #60a5fa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .glow-effect {
+            box-shadow: 0 0 25px rgba(46, 109, 164, 0.3);
+        }
+        .glow-hover:hover {
+            box-shadow: 0 10px 30px -10px rgba(46, 109, 164, 0.5);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-electric selection:text-white">
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="sticky top-0 z-40 w-full bg-navy/95 backdrop-blur-md border-b border-navy-light/40 transition-all">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Brand Logo -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-xl bg-electric flex items-center justify-center text-white font-bold text-xl shadow-lg group-hover:scale-105 transition-transform">
+                        GM
+                    </div>
+                    <div>
+                        <span class="text-xl font-bold text-white tracking-tight block">Gilbert Mendoza</span>
+                        <span class="text-xs text-techCyan font-medium block">Backend & AI Automation</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-200">
+                    <a href="#problema" class="hover:text-techCyan transition-colors">Problema</a>
+                    <a href="#servicios" class="hover:text-techCyan transition-colors">Servicios</a>
+                    <a href="#experiencia" class="hover:text-techCyan transition-colors">Experiencia</a>
+                    <a href="#calculadora" class="hover:text-techCyan transition-colors">Calculadora ROI</a>
+                    <a href="#sobre-mi" class="hover:text-techCyan transition-colors">Sobre Mí</a>
+                </nav>
+
+                <!-- Header CTA Button -->
+                <div class="hidden md:flex items-center">
+                    <button onclick="openAuditModal()" class="bg-electric hover:bg-electric-bright text-white px-5 py-2.5 rounded-lg font-semibold text-sm transition-all shadow-md hover:shadow-electric/50 hover:-translate-y-0.5">
+                        Auditoría Gratuita
+                    </button>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" type="button" class="text-slate-300 hover:text-white p-2 rounded-md focus:outline-none" aria-label="Abrir Menú">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Drawer -->
+        <div id="mobile-menu" class="hidden md:hidden bg-navy-dark border-b border-navy-light px-4 pt-2 pb-6 space-y-3">
+            <a href="#problema" class="mobile-link block py-2 text-slate-200 hover:text-techCyan font-medium">Problema</a>
+            <a href="#servicios" class="mobile-link block py-2 text-slate-200 hover:text-techCyan font-medium">Servicios</a>
+            <a href="#experiencia" class="mobile-link block py-2 text-slate-200 hover:text-techCyan font-medium">Experiencia</a>
+            <a href="#calculadora" class="mobile-link block py-2 text-slate-200 hover:text-techCyan font-medium">Calculadora ROI</a>
+            <a href="#sobre-mi" class="mobile-link block py-2 text-slate-200 hover:text-techCyan font-medium">Sobre Mí</a>
+            <button onclick="openAuditModal()" class="w-full text-center mt-3 bg-electric hover:bg-electric-bright text-white py-3 rounded-lg font-semibold text-sm">
+                Quiero una Auditoría Gratuita
+            </button>
+        </div>
+    </header>
+
+    <!-- SECCIÓN 1 — HERO -->
+    <section class="relative bg-navy text-white overflow-hidden py-16 lg:py-24 tech-grid">
+        <!-- Ambient background lighting -->
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-electric/20 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Content Column -->
+                <div class="lg:col-span-7 space-y-8 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-navy-light/80 border border-techCyan/30 text-techCyan text-xs sm:text-sm font-semibold tracking-wide">
+                        <span class="w-2 h-2 rounded-full bg-techCyan animate-ping"></span>
+                        Ingeniero Backend & Gestor de Productividad con IA
+                    </div>
+
+                    <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
+                        Tu negocio automatizado. <br class="hidden sm:inline">
+                        <span class="text-gradient">Tu equipo enfocado en resultados.</span>
+                    </h1>
+
+                    <p class="text-slate-300 text-base sm:text-lg lg:text-xl leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                        Soy <strong class="text-white font-semibold">Gilbert Mendoza</strong>, Ingeniero Backend y Especialista en Automatización. Combino Inteligencia Artificial, desarrollo en Python y soluciones Cloud para eliminar tus procesos manuales, conectar tus herramientas y optimizar tus SLA.
+                    </p>
+
+                    <!-- CTAs -->
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+                        <button onclick="openAuditModal()" class="w-full sm:w-auto bg-electric hover:bg-electric-bright text-white px-8 py-4 rounded-xl font-bold text-base transition-all shadow-lg shadow-electric/30 hover:shadow-electric/50 hover:-translate-y-0.5 flex items-center justify-center gap-3 group">
+                            <span>Quiero una Auditoría de Procesos Gratuita</span>
+                            <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                        </button>
+                        <a href="#experiencia" class="w-full sm:w-auto bg-navy-light/60 hover:bg-navy-light text-slate-200 hover:text-white border border-slate-600/50 px-7 py-4 rounded-xl font-semibold text-base transition-all text-center">
+                            Ver mi experiencia técnica
+                        </a>
+                    </div>
+
+                    <!-- Micro Trust Indicators -->
+                    <div class="pt-6 border-t border-slate-700/60 flex flex-wrap items-center justify-center lg:justify-start gap-6 text-xs text-slate-400">
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-shield-halved text-techCyan text-sm"></i>
+                            <span>Garantía de Optimización de SLA</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fa-brands fa-python text-techCyan text-sm"></i>
+                            <span>Python & Cloud Architecture</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-microchip text-techCyan text-sm"></i>
+                            <span>Integración de IA Generativa</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Visual Column: Code/Pipeline Visualizer -->
+                <div class="lg:col-span-5">
+                    <div class="bg-navy-dark/90 rounded-2xl border border-slate-700/70 p-6 shadow-2xl relative overflow-hidden backdrop-blur-xl">
+                        <!-- Code Header -->
+                        <div class="flex items-center justify-between pb-4 border-b border-slate-800">
+                            <div class="flex items-center gap-2">
+                                <span class="w-3 h-3 rounded-full bg-red-500"></span>
+                                <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
+                                <span class="w-3 h-3 rounded-full bg-green-500"></span>
+                            </div>
+                            <span class="text-xs text-slate-400 font-mono">workflow_automation.py</span>
+                        </div>
+
+                        <!-- Code Body Mockup -->
+                        <div class="py-4 font-mono text-xs sm:text-sm space-y-3 leading-relaxed text-slate-300">
+                            <p><span class="text-purple-400">import</span> <span class="text-white">ai_engine, python_cloud, api_gateway</span></p>
+                            <p class="text-slate-500"># 1. Detect bottleneck & raw input data</p>
+                            <p><span class="text-blue-400">def</span> <span class="text-yellow-300">optimize_business_flow</span>(process_data):</p>
+                            <p class="pl-4"><span class="text-slate-400">automated_tasks</span> = ai_engine.analyze(process_data)</p>
+                            <p class="pl-4"><span class="text-slate-400">sync_status</span> = api_gateway.integrate_silos()</p>
+                            <p class="pl-4"><span class="text-purple-400">return</span> {</p>
+                            <p class="pl-8"><span class="text-green-400">"manual_hours_saved"</span>: <span class="text-techCyan">"8+ hrs/week"</span>,</p>
+                            <p class="pl-8"><span class="text-green-400">"sla_status"</span>: <span class="text-techCyan">"100% Guaranteed"</span>,</p>
+                            <p class="pl-8"><span class="text-green-400">"error_rate"</span>: <span class="text-techCyan">"0.0%"</span></p>
+                            <p class="pl-4">}</p>
+                        </div>
+
+                        <!-- Floating Live Status Badge -->
+                        <div class="mt-4 pt-4 border-t border-slate-800 flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <span class="relative flex h-2.5 w-2.5">
+                                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                                  <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+                                </span>
+                                <span class="text-xs font-semibold text-emerald-400">Sistemas Ejecutando sin Errores</span>
+                            </div>
+                            <span class="text-xs text-slate-500">Python 3.12 | GCP</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 2 — EL PROBLEMA -->
+    <section id="problema" class="py-20 bg-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-electric font-bold text-sm tracking-wider uppercase">Fricción Operativa</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-navy mt-2">¿Tu empresa sufre de estos 3 frenos invisibles?</h2>
+                <p class="text-slate-600 mt-4 text-base sm:text-lg">
+                    Los cuellos de botella no solo destruyen la rentabilidad, sino que agotan a tus mejores talentos en trabajo rutinario.
+                </p>
+            </div>
+
+            <!-- 3 Problem Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Card 1 -->
+                <div class="bg-white rounded-2xl p-8 border border-slate-200/80 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group">
+                    <div class="w-14 h-14 rounded-xl bg-red-100 text-red-600 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-clock-rotate-left"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-navy mb-3">Pérdida Masiva de Tiempo</h3>
+                    <p class="text-slate-600 leading-relaxed text-sm sm:text-base">
+                        Tu equipo pierde horas valiosas en tareas operativas, manuales y repetitivas que podrían ser ejecutadas en milisegundos por código backend especializado.
+                    </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-white rounded-2xl p-8 border border-slate-200/80 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group">
+                    <div class="w-14 h-14 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-plug-circle-xmark"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-navy mb-3">Herramientas Desconectadas</h3>
+                    <p class="text-slate-600 leading-relaxed text-sm sm:text-base">
+                        Tus herramientas no se comunican entre sí, generando silos de información (APIs desconectadas), duplicidad de datos y errores de digitación humana.
+                    </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-white rounded-2xl p-8 border border-slate-200/80 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group">
+                    <div class="w-14 h-14 rounded-xl bg-orange-100 text-orange-600 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-navy mb-3">SLA e Incidentes Fuera de Control</h3>
+                    <p class="text-slate-600 leading-relaxed text-sm sm:text-base">
+                        Incumples tus tiempos de respuesta (SLA) por falta de optimización, cuellos de botella operativos y la ausencia de monitoreo proactivo de flujos críticos.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 3 — MIS SERVICIOS -->
+    <section id="servicios" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-electric font-bold text-sm tracking-wider uppercase">Soluciones Directas</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-navy mt-2">Servicios Diseñados para Escalar sin Caos</h2>
+                <p class="text-slate-600 mt-4 text-base sm:text-lg">
+                    Propuestas claras, precios transparentes y retorno de inversión inmediato.
+                </p>
+            </div>
+
+            <!-- Services Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+                <!-- Servicio 1 -->
+                <div class="bg-slate-50 rounded-2xl p-8 border border-slate-200 flex flex-col justify-between hover:border-electric transition-all shadow-sm hover:shadow-xl group relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-electric/5 rounded-bl-full pointer-events-none"></div>
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-navy text-white flex items-center justify-center text-xl mb-6 group-hover:bg-electric transition-colors">
+                            <i class="fa-solid fa-magnifying-glass-chart"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-navy mb-2">Auditoría de Productividad e Infraestructura TI</h3>
+                        <p class="text-slate-600 text-sm mb-6 leading-relaxed">
+                            Mapeo completo de tu arquitectura actual, detección de fugas de tiempo y diseño de la hoja de ruta para la automatización.
+                        </p>
+                        <ul class="space-y-3 text-sm text-slate-700 mb-8">
+                            <li class="flex items-center gap-2">
+                                <i class="fa-solid fa-circle-check text-electric"></i>
+                                <span>Análisis de cuellos de botella</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fa-solid fa-circle-check text-electric"></i>
+                                <span>Diagnóstico de APIs e infraestructura</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fa-solid fa-circle-check text-electric"></i>
+                                <span>Reporte ejecutivo con KPIs de SLA</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="border-t border-slate-200 pt-6">
+                        <div class="flex items-baseline justify-between mb-4">
+                            <span class="text-xs font-semibold text-slate-500 uppercase">Inversión</span>
+                            <span class="text-3xl font-extrabold text-navy">$150 <span class="text-sm font-normal text-slate-500">USD</span></span>
+                        </div>
+                        <button onclick="openAuditModal('Auditoría de Productividad')" class="w-full bg-navy hover:bg-electric text-white py-3 rounded-lg font-bold text-sm transition-colors text-center">
+                            Solicitar Auditoría
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Servicio 2 (Destacado) -->
+                <div class="bg-navy text-white rounded-2xl p-8 border-2 border-electric flex flex-col justify-between transition-all shadow-xl hover:shadow-2xl relative scale-105 my-2 md:my-0">
+                    <div class="absolute top-4 right-4 bg-electric text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                        Más Popular
+                    </div>
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-electric text-white flex items-center justify-center text-xl mb-6">
+                            <i class="fa-solid fa-gears"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-2">Automatización a Medida</h3>
+                        <p class="text-slate-300 text-sm mb-6 leading-relaxed">
+                            Desarrollo robusto en Python, integración de modelos de Inteligencia Artificial y conectores de APIs para flujos 100% autónomos.
+                        </p>
+                        <ul class="space-y-3 text-sm text-slate-200 mb-8">
+                            <li class="flex items-center gap-2">
+                                <i class="fa-solid fa-circle-check text-techCyan"></i>
+                                <span>Backend en Python / FastAPI / Flask</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fa-solid fa-circle-check text-techCyan"></i>
+                                <span>Integración de IA (LLMs/OpenAI)</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fa-solid fa-circle-check text-techCyan"></i>
+                                <span>Despliegue Cloud (GCP / Docker)</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="border-t border-navy-light pt-6">
+                        <div class="flex items-baseline justify-between mb-4">
+                            <span class="text-xs font-semibold text-slate-400 uppercase">Desde</span>
+                            <span class="text-3xl font-extrabold text-white">$500 <span class="text-sm font-normal text-slate-400">USD</span></span>
+                        </div>
+                        <button onclick="openAuditModal('Automatización a Medida')" class="w-full bg-electric hover:bg-electric-bright text-white py-3 rounded-lg font-bold text-sm transition-colors text-center shadow-lg">
+                            Contratar Proyecto
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Servicio 3 -->
+                <div class="bg-slate-50 rounded-2xl p-8 border border-slate-200 flex flex-col justify-between hover:border-electric transition-all shadow-sm hover:shadow-xl group relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-electric/5 rounded-bl-full pointer-events-none"></div>
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-navy text-white flex items-center justify-center text-xl mb-6 group-hover:bg-electric transition-colors">
+                            <i class="fa-solid fa-chart-line"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-navy mb-2">Soporte, Monitoreo y Optimización</h3>
+                        <p class="text-slate-600 text-sm mb-6 leading-relaxed">
+                            Mantenimiento continuo para asegurar que tus pipelines permanezcan estables, seguros y adaptados a la evolución de tu negocio.
+                        </p>
+                        <ul class="space-y-3 text-sm text-slate-700 mb-8">
+                            <li class="flex items-center gap-2">
+                                <i class="fa-solid fa-circle-check text-electric"></i>
+                                <span>Monitoreo 24/7 de SLAs de respuesta</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fa-solid fa-circle-check text-electric"></i>
+                                <span>Ajustes periódicos de scripts e IA</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fa-solid fa-circle-check text-electric"></i>
+                                <span>Soporte prioritario ante fallos</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="border-t border-slate-200 pt-6">
+                        <div class="flex items-baseline justify-between mb-4">
+                            <span class="text-xs font-semibold text-slate-500 uppercase">Recurrente</span>
+                            <span class="text-3xl font-extrabold text-navy">$250 <span class="text-sm font-normal text-slate-500">USD/mes</span></span>
+                        </div>
+                        <button onclick="openAuditModal('Soporte y Optimización')" class="w-full bg-navy hover:bg-electric text-white py-3 rounded-lg font-bold text-sm transition-colors text-center">
+                            Iniciar Suscripción
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- BONUS INTERACTIVE SECTION — CALCULADORA DE AHORRO / ROI -->
+    <section id="calculadora" class="py-16 bg-slate-900 text-white relative">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-navy rounded-3xl p-8 sm:p-12 border border-slate-700 shadow-2xl">
+                <div class="text-center max-w-2xl mx-auto mb-10">
+                    <span class="text-techCyan text-xs font-bold tracking-widest uppercase">Calculadora Interactiva</span>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold mt-1">¿Cuánto dinero estás perdiendo en tareas manuales?</h2>
+                    <p class="text-slate-300 text-sm mt-2">Ajusta los parámetros para calcular el potencial de recuperación de tu equipo.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <!-- Controls -->
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between text-sm mb-2 font-medium">
+                                <label for="calc-team">Tamaño del equipo operativo:</label>
+                                <span id="team-value" class="text-techCyan font-bold">5 personas</span>
+                            </div>
+                            <input id="calc-team" type="range" min="1" max="50" value="5" class="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-electric">
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between text-sm mb-2 font-medium">
+                                <label for="calc-hours">Horas semanales manuales por persona:</label>
+                                <span id="hours-value" class="text-techCyan font-bold">8 horas</span>
+                            </div>
+                            <input id="calc-hours" type="range" min="2" max="25" value="8" class="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-electric">
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between text-sm mb-2 font-medium">
+                                <label for="calc-cost">Costo promedio estimado por hora ($USD):</label>
+                                <span id="cost-value" class="text-techCyan font-bold">$15 USD</span>
+                            </div>
+                            <input id="calc-cost" type="range" min="8" max="60" value="15" class="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-electric">
+                        </div>
+                    </div>
+
+                    <!-- Calculated Output Card -->
+                    <div class="bg-navy-dark/90 rounded-2xl p-6 border border-electric/40 text-center space-y-4">
+                        <span class="text-xs uppercase text-slate-400 tracking-wider font-semibold">Impacto Estimado Mensual</span>
+                        
+                        <div>
+                            <div id="res-hours" class="text-4xl sm:text-5xl font-black text-techCyan">160 hrs</div>
+                            <p class="text-xs text-slate-400 mt-1">Horas operativas liberadas cada mes</p>
+                        </div>
+
+                        <div class="border-t border-slate-800 pt-4">
+                            <div id="res-savings" class="text-3xl sm:text-4xl font-extrabold text-emerald-400">$2,400 USD</div>
+                            <p class="text-xs text-slate-400 mt-1">Ahorro financiero directo mensual</p>
+                        </div>
+
+                        <button onclick="openAuditModal('Calculadora ROI')" class="w-full mt-2 bg-electric hover:bg-electric-bright text-white py-2.5 rounded-lg text-sm font-bold transition-all">
+                            Recuperar estas horas ahora
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 4 — MI EXPERIENCIA LABORAL Y PROYECTOS -->
+    <section id="experiencia" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-electric font-bold text-sm tracking-wider uppercase">Respaldo Profesional</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-navy mt-2">Experiencia Técnica de Alto Nivel</h2>
+                <p class="text-slate-600 mt-4 text-base sm:text-lg">
+                    Más de una década optimizando infraestructuras complejas y garantizando continuidad operativa en entornos corporativos de alta demanda.
+                </p>
+            </div>
+
+            <!-- Timeline & Cards Layout -->
+            <div class="space-y-8">
+
+                <!-- Card 1: Experiencia Corporativa Falabella -->
+                <div class="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm hover:shadow-md transition-all flex flex-col md:flex-row gap-6 items-start">
+                    <div class="w-16 h-16 rounded-2xl bg-navy text-white flex-shrink-0 flex items-center justify-center text-2xl shadow-md">
+                        <i class="fa-solid fa-building-columns"></i>
+                    </div>
+                    <div class="flex-grow space-y-3">
+                        <div class="flex flex-wrap items-center justify-between gap-2">
+                            <h3 class="text-2xl font-bold text-navy">Senior IT Specialist — Falabella</h3>
+                            <span class="px-3 py-1 rounded-full bg-electric/10 text-electric text-xs font-bold">Experiencia Corporativa Retail</span>
+                        </div>
+                        <p class="text-slate-700 leading-relaxed text-sm sm:text-base">
+                            Especialista encargando de asegurar el riguroso cumplimiento de SLA corporativos, ejecución de análisis de causa raíz para incidentes de alta severidad y diseño/desarrollo de automatizaciones personalizadas con Python para eliminar tareas operativas manuales en gran escala.
+                        </p>
+                        <div class="flex flex-wrap gap-2 pt-2">
+                            <span class="px-2.5 py-1 rounded bg-slate-100 text-slate-700 text-xs font-semibold">Cumplimiento SLA</span>
+                            <span class="px-2.5 py-1 rounded bg-slate-100 text-slate-700 text-xs font-semibold">Análisis Causa Raíz</span>
+                            <span class="px-2.5 py-1 rounded bg-slate-100 text-slate-700 text-xs font-semibold">Python Automation</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: Background Técnico -->
+                <div class="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm hover:shadow-md transition-all flex flex-col md:flex-row gap-6 items-start">
+                    <div class="w-16 h-16 rounded-2xl bg-electric text-white flex-shrink-0 flex items-center justify-center text-2xl shadow-md">
+                        <i class="fa-solid fa-server"></i>
+                    </div>
+                    <div class="flex-grow space-y-3">
+                        <div class="flex flex-wrap items-center justify-between gap-2">
+                            <h3 class="text-2xl font-bold text-navy">Background Técnico Robusto</h3>
+                            <span class="px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold">+10 Años en Operaciones TI</span>
+                        </div>
+                        <p class="text-slate-700 leading-relaxed text-sm sm:text-base">
+                            Trayectoria sólida liderando operaciones de infraestructura tecnológica Cloud en Google Cloud Platform (GCP) y administrando bases de datos de alto rendimiento relacionales como PostgreSQL y Oracle.
+                        </p>
+                        <div class="flex flex-wrap gap-2 pt-2">
+                            <span class="px-2.5 py-1 rounded bg-slate-100 text-slate-700 text-xs font-semibold">Google Cloud Platform (GCP)</span>
+                            <span class="px-2.5 py-1 rounded bg-slate-100 text-slate-700 text-xs font-semibold">PostgreSQL</span>
+                            <span class="px-2.5 py-1 rounded bg-slate-100 text-slate-700 text-xs font-semibold">Oracle Database</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3: Casos de Éxito -->
+                <div class="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm hover:shadow-md transition-all flex flex-col md:flex-row gap-6 items-start">
+                    <div class="w-16 h-16 rounded-2xl bg-indigo-600 text-white flex-shrink-0 flex items-center justify-center text-2xl shadow-md">
+                        <i class="fa-solid fa-diagram-project"></i>
+                    </div>
+                    <div class="flex-grow space-y-3">
+                        <div class="flex flex-wrap items-center justify-between gap-2">
+                            <h3 class="text-2xl font-bold text-navy">Casos de Éxito e Integraciones</h3>
+                            <span class="px-3 py-1 rounded-full bg-indigo-100 text-indigo-800 text-xs font-bold">Soluciones Desplegadas</span>
+                        </div>
+                        <p class="text-slate-700 leading-relaxed text-sm sm:text-base">
+                            Desarrollo e implementación de sistemas automatizados de procesamiento y envío masivo de documentos mediante consumo de APIs REST, así como plataformas internas de gestión contenerizadas utilizando Docker, Flask y Django.
+                        </p>
+                        <div class="flex flex-wrap gap-2 pt-2">
+                            <span class="px-2.5 py-1 rounded bg-slate-100 text-slate-700 text-xs font-semibold">APIs RESTful</span>
+                            <span class="px-2.5 py-1 rounded bg-slate-100 text-slate-700 text-xs font-semibold">Docker</span>
+                            <span class="px-2.5 py-1 rounded bg-slate-100 text-slate-700 text-xs font-semibold">Flask / Django</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 5 — RESULTADOS -->
+    <section class="py-16 bg-navy text-white border-y border-navy-light/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center divide-y lg:divide-y-0 lg:divide-x divide-slate-700/60">
+                
+                <div class="pt-4 lg:pt-0">
+                    <div class="text-4xl sm:text-5xl font-extrabold text-techCyan mb-2">10+</div>
+                    <p class="text-slate-300 text-sm font-medium">Años de Experiencia Técnica</p>
+                </div>
+
+                <div class="pt-4 lg:pt-0">
+                    <div class="text-4xl sm:text-5xl font-extrabold text-techCyan mb-2">8+</div>
+                    <p class="text-slate-300 text-sm font-medium">Horas Recuperadas por Semana</p>
+                </div>
+
+                <div class="pt-4 lg:pt-0">
+                    <div class="text-4xl sm:text-5xl font-extrabold text-techCyan mb-2">-85%</div>
+                    <p class="text-slate-300 text-sm font-medium">Reducción Drástica de Incidentes</p>
+                </div>
+
+                <div class="pt-4 lg:pt-0">
+                    <div class="text-4xl sm:text-5xl font-extrabold text-techCyan mb-2">100%</div>
+                    <p class="text-slate-300 text-sm font-medium">Sistemas Integrados e Invisibles</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 6 — PROCESO -->
+    <section id="proceso" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-electric font-bold text-sm tracking-wider uppercase">Metodología Clara</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-navy mt-2">Un Proceso Estructurado hacia la Eficiencia</h2>
+                <p class="text-slate-600 mt-4 text-base sm:text-lg">
+                    Sin sorpresas ni imprevistos: 4 pasos para transformar tu caos operativo en paz tecnológica.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 relative">
+                
+                <!-- Step 1 -->
+                <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200 relative group hover:border-electric transition-all">
+                    <div class="w-12 h-12 rounded-xl bg-navy text-white font-extrabold text-lg flex items-center justify-center mb-6 group-hover:bg-electric transition-colors">
+                        01
+                    </div>
+                    <div class="text-electric mb-3 text-2xl">
+                        <i class="fa-solid fa-stethoscope"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-navy mb-2">Análisis Causa Raíz</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Evaluamos la causa origen de tus retrasos operativos y diagnosticamos dónde la automatización genera el máximo retorno.
+                    </p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200 relative group hover:border-electric transition-all">
+                    <div class="w-12 h-12 rounded-xl bg-navy text-white font-extrabold text-lg flex items-center justify-center mb-6 group-hover:bg-electric transition-colors">
+                        02
+                    </div>
+                    <div class="text-electric mb-3 text-2xl">
+                        <i class="fa-solid fa-code-merge"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-navy mb-2">Arquitectura (IA/Python)</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Diseñamos el flujo backend con Python e Inteligencia Artificial adaptado a la lógica exacta de tu negocio.
+                    </p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200 relative group hover:border-electric transition-all">
+                    <div class="w-12 h-12 rounded-xl bg-navy text-white font-extrabold text-lg flex items-center justify-center mb-6 group-hover:bg-electric transition-colors">
+                        03
+                    </div>
+                    <div class="text-electric mb-3 text-2xl">
+                        <i class="fa-solid fa-network-wired"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-navy mb-2">Implementación APIs</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Conectamos tus plataformas desconectadas y desplegamos el entorno en infraestructura Cloud segura (GCP / Docker).
+                    </p>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200 relative group hover:border-electric transition-all">
+                    <div class="w-12 h-12 rounded-xl bg-navy text-white font-extrabold text-lg flex items-center justify-center mb-6 group-hover:bg-electric transition-colors">
+                        04
+                    </div>
+                    <div class="text-electric mb-3 text-2xl">
+                        <i class="fa-solid fa-chart-pie"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-navy mb-2">Monitoreo de SLA</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Activamos monitoreo en tiempo real para asegurar que los tiempos de respuesta y la precisión se mantengan constantes.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 7 — SOBRE MÍ -->
+    <section id="sobre-mi" class="py-20 bg-slate-900 text-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Avatar Visual -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="relative">
+                        <div class="w-64 h-64 sm:w-80 sm:h-80 rounded-3xl bg-gradient-to-tr from-electric to-navy p-1 shadow-2xl">
+                            <div class="w-full h-full bg-navy-dark rounded-3xl flex flex-col items-center justify-center p-6 text-center border border-slate-700">
+                                <div class="w-28 h-28 rounded-full bg-electric/20 border-2 border-techCyan flex items-center justify-center text-techCyan text-5xl mb-4">
+                                    <i class="fa-solid fa-user-gear"></i>
+                                </div>
+                                <h3 class="text-2xl font-bold text-white">Gilbert Mendoza</h3>
+                                <p class="text-techCyan text-xs mt-1 font-mono">Ingeniero en Informática</p>
+                                <p class="text-slate-400 text-xs mt-2"><i class="fa-solid fa-location-dot"></i> Caracas, Venezuela</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Text Bio -->
+                <div class="lg:col-span-7 space-y-6">
+                    <span class="text-techCyan font-bold text-sm tracking-wider uppercase">El Ingeniero Detrás de las Soluciones</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Sobre Mí</h2>
+                    
+                    <p class="text-slate-300 text-base sm:text-lg leading-relaxed">
+                        Soy Gilbert Mendoza, Ingeniero en Informática radicado en Caracas. Ayudo a empresas a transformar el caos operativo en flujos de trabajo eficientes e invisibles. Mi especialidad es crear puentes entre la Inteligencia Artificial y el desarrollo backend robusto para que tu negocio escale sin necesidad de contratar más personas.
+                    </p>
+
+                    <div class="pt-4">
+                        <h4 class="text-xs uppercase text-slate-400 font-semibold tracking-wider mb-3">Tech Stack & Especialidades</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1.5 rounded-lg bg-navy-light text-slate-200 text-xs font-mono border border-slate-700"><i class="fa-brands fa-python text-techCyan mr-1"></i> Python</span>
+                            <span class="px-3 py-1.5 rounded-lg bg-navy-light text-slate-200 text-xs font-mono border border-slate-700">FastAPI & Django</span>
+                            <span class="px-3 py-1.5 rounded-lg bg-navy-light text-slate-200 text-xs font-mono border border-slate-700"><i class="fa-brands fa-docker text-techCyan mr-1"></i> Docker</span>
+                            <span class="px-3 py-1.5 rounded-lg bg-navy-light text-slate-200 text-xs font-mono border border-slate-700"><i class="fa-brands fa-google text-techCyan mr-1"></i> GCP Cloud</span>
+                            <span class="px-3 py-1.5 rounded-lg bg-navy-light text-slate-200 text-xs font-mono border border-slate-700"><i class="fa-solid fa-database text-techCyan mr-1"></i> PostgreSQL & Oracle</span>
+                            <span class="px-3 py-1.5 rounded-lg bg-navy-light text-slate-200 text-xs font-mono border border-slate-700"><i class="fa-solid fa-robot text-techCyan mr-1"></i> OpenAI / IA</span>
+                            <span class="px-3 py-1.5 rounded-lg bg-navy-light text-slate-200 text-xs font-mono border border-slate-700"><i class="fa-solid fa-clock text-techCyan mr-1"></i> SLA Optimization</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 8 — TESTIMONIOS -->
+    <section class="py-20 bg-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-electric font-bold text-sm tracking-wider uppercase">Casos Reales</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-navy mt-2">Lo que Opinan Equipos que ya Automatizaron</h2>
+                <p class="text-slate-600 mt-4 text-base sm:text-lg">
+                    Resultados tangibles en reducción de trabajo manual y cumplimiento de SLA corporativos.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <!-- Testimonial 1 -->
+                <div class="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm relative flex flex-col justify-between">
+                    <div class="text-amber-400 text-sm mb-4">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-slate-700 italic text-sm sm:text-base leading-relaxed mb-6">
+                        "Gilbert transformó nuestro flujo de atención e integración de inventario. Pasamos de demorarnos horas procesando órdenes manualmente a tener un sistema automatizado en Python con GCP que redujo nuestros tiempos de respuesta en un 70%. El cumplimiento de nuestras SLA pasó del 82% al 99.4%."
+                    </p>
+                    <div class="flex items-center gap-4 pt-4 border-t border-slate-100">
+                        <div class="w-12 h-12 rounded-full bg-navy text-white flex items-center justify-center font-bold text-lg">
+                            CM
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-navy text-sm">Carlos M.</h4>
+                            <p class="text-slate-500 text-xs">Gerente de Operaciones Logísticas — Retail / E-Commerce</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm relative flex flex-col justify-between">
+                    <div class="text-amber-400 text-sm mb-4">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-slate-700 italic text-sm sm:text-base leading-relaxed mb-6">
+                        "Antes de trabajar con Gilbert, nuestro equipo perdía casi un día entero a la semana conciliando reporte de documentos. Gilbert automatizó todo el pipeline conectando nuestras herramientas legacy con APIs modernas e IA. La inversión se pagó sola en el primer mes."
+                    </p>
+                    <div class="flex items-center gap-4 pt-4 border-t border-slate-100">
+                        <div class="w-12 h-12 rounded-full bg-electric text-white flex items-center justify-center font-bold text-lg">
+                            MV
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-navy text-sm">Mariana V.</h4>
+                            <p class="text-slate-500 text-xs">Directora de Tecnología & Procesos</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 9 — CTA FINAL -->
+    <section class="py-20 bg-navy text-white text-center relative overflow-hidden tech-grid">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight mb-4">
+                ¿Listo para que tus sistemas trabajen por ti?
+            </h2>
+            <p class="text-slate-300 text-base sm:text-xl mb-8 max-w-2xl mx-auto">
+                Sin compromiso. Soluciones escalables. Solo resultados.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <button onclick="openAuditModal()" class="w-full sm:w-auto bg-electric hover:bg-electric-bright text-white px-9 py-4 rounded-xl font-bold text-base transition-all shadow-xl shadow-electric/40 hover:-translate-y-0.5">
+                    Agenda tu Auditoría Gratuita
+                </button>
+                <a href="https://wa.me/584126776419?text=Hola%20Gilbert,%20me%20interesa%20una%20auditor%C3%ADa%20de%20procesos%20para%20mi%20empresa." target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-500 text-white px-8 py-4 rounded-xl font-bold text-base transition-all flex items-center justify-center gap-2">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                    Escribir por WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 10 — FOOTER -->
+    <footer class="bg-navy-dark text-slate-400 py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 mb-8">
+                
+                <!-- Col 1: Bio -->
+                <div class="md:col-span-5 space-y-3">
+                    <h3 class="text-lg font-bold text-white">Gilbert Mendoza</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed max-w-sm">
+                        Ingeniero Backend y Gestor de Productividad con IA. Especialista en la eliminación de tareas manuales, integración de APIs y cumplimiento de SLA.
+                    </p>
+                </div>
+
+                <!-- Col 2: Direct Contact Data -->
+                <div class="md:col-span-4 space-y-2 text-xs">
+                    <h4 class="text-xs font-bold text-white uppercase tracking-wider mb-2">Contacto Directo</h4>
+                    <p class="flex items-center gap-2">
+                        <i class="fa-solid fa-envelope text-electric"></i>
+                        <a href="mailto:Gilbertm10@gmail.com" class="hover:text-white transition-colors">Gilbertm10@gmail.com</a>
+                    </p>
+                    <p class="flex items-center gap-2">
+                        <i class="fa-solid fa-phone text-electric"></i>
+                        <a href="tel:+584126776419" class="hover:text-white transition-colors">+58 412 6776419</a>
+                    </p>
+                    <p class="flex items-center gap-2">
+                        <i class="fa-solid fa-globe text-electric"></i>
+                        <a href="https://giltech.com" target="_blank" rel="noopener" class="hover:text-white transition-colors">giltech.com</a>
+                    </p>
+                </div>
+
+                <!-- Col 3: Links & Social -->
+                <div class="md:col-span-3 space-y-2 text-xs">
+                    <h4 class="text-xs font-bold text-white uppercase tracking-wider mb-2">Redes & Código</h4>
+                    <div class="flex items-center gap-4 text-lg pt-1">
+                        <a href="https://www.linkedin.com/in/gilbert-mendoza-rodriguez" target="_blank" rel="noopener" class="hover:text-techCyan transition-colors" title="LinkedIn">
+                            <i class="fa-brands fa-linkedin"></i>
+                        </a>
+                        <a href="https://github.com/gilhoruz" target="_blank" rel="noopener" class="hover:text-techCyan transition-colors" title="GitHub">
+                            <i class="fa-brands fa-github"></i>
+                        </a>
+                        <a href="https://wa.me/584126776419" target="_blank" rel="noopener" class="hover:text-emerald-400 transition-colors" title="WhatsApp">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="pt-8 border-t border-slate-800 text-center text-xs text-slate-500 flex flex-col sm:flex-row justify-between items-center gap-4">
+                <p>© <span id="current-year"></span> Gilbert Mendoza. Todos los derechos reservados.</p>
+                <p>Ingeniería de Automatización & Soluciones Backend con IA</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- FLOATING WHATSAPP BUTTON -->
+    <a href="https://wa.me/584126776419?text=Hola%20Gilbert,%20me%20interesa%20una%20auditor%C3%ADa%20de%20procesos%20para%20mi%20empresa." 
+       target="_blank" 
+       rel="noopener noreferrer"
+       aria-label="Contactar por WhatsApp"
+       class="fixed bottom-6 right-6 z-50 bg-emerald-500 hover:bg-emerald-400 text-white p-4 rounded-full shadow-2xl transition-all duration-300 hover:scale-110 flex items-center justify-center group">
+        <i class="fa-brands fa-whatsapp text-3xl"></i>
+        <!-- Tooltip on hover -->
+        <span class="absolute right-16 bg-slate-900 text-white text-xs font-medium px-3 py-1.5 rounded-md whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity shadow-lg pointer-events-none">
+            ¡Hablemos por WhatsApp!
+        </span>
+    </a>
+
+    <!-- AUDIT MODAL DIALOG -->
+    <div id="audit-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center bg-black/70 backdrop-blur-sm p-4">
+        <div class="bg-white rounded-2xl max-w-lg w-full p-6 sm:p-8 relative shadow-2xl border border-slate-100">
+            <button onclick="closeAuditModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-700 text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            
+            <div class="mb-6">
+                <span class="text-electric text-xs font-bold uppercase tracking-wider">Auditoría de Procesos Gratuita</span>
+                <h3 id="modal-service-title" class="text-2xl font-bold text-navy mt-1">Solicita tu Diagnóstico Operativo</h3>
+                <p class="text-slate-600 text-sm mt-1">Déjame tus datos y analizaremos tus cuellos de botella sin costo.</p>
+            </div>
+
+            <form id="audit-form" onsubmit="handleFormSubmit(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-semibold text-slate-700 mb-1">Nombre Completo</label>
+                    <input type="text" required placeholder="Tu nombre o empresa" class="w-full px-4 py-2.5 rounded-lg border border-slate-300 text-sm focus:ring-2 focus:ring-electric focus:outline-none">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold text-slate-700 mb-1">Correo Electrónico</label>
+                    <input type="email" required placeholder="tu@empresa.com" class="w-full px-4 py-2.5 rounded-lg border border-slate-300 text-sm focus:ring-2 focus:ring-electric focus:outline-none">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold text-slate-700 mb-1">WhatsApp / Teléfono</label>
+                    <input type="tel" required placeholder="+58 412 0000000" class="w-full px-4 py-2.5 rounded-lg border border-slate-300 text-sm focus:ring-2 focus:ring-electric focus:outline-none">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold text-slate-700 mb-1">¿Cuál es tu mayor desafío de automatización?</label>
+                    <textarea rows="3" placeholder="Ej: Tareas manuales en Excel, faltan APIs para integrar nuestro software..." class="w-full px-4 py-2.5 rounded-lg border border-slate-300 text-sm focus:ring-2 focus:ring-electric focus:outline-none"></textarea>
+                </div>
+
+                <button type="submit" class="w-full bg-electric hover:bg-electric-bright text-white py-3 rounded-lg font-bold text-sm transition-all shadow-md">
+                    Enviar Solicitud
+                </button>
+            </form>
+
+            <div id="modal-success" class="hidden text-center py-8 space-y-3">
+                <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center text-3xl mx-auto">
+                    <i class="fa-solid fa-circle-check"></i>
+                </div>
+                <h4 class="text-xl font-bold text-navy">¡Solicitud Recibida!</h4>
+                <p class="text-slate-600 text-sm">Me pondré en contacto contigo a la brevedad para agendar la auditoría gratuita.</p>
+                <button onclick="closeAuditModal()" class="mt-4 px-6 py-2 bg-navy text-white rounded-lg text-sm font-semibold">Cerrar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // Set dynamic year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Mobile Menu Drawer Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Audit Modal Controls
+        function openAuditModal(serviceName = null) {
+            const modal = document.getElementById('audit-modal');
+            const titleEl = document.getElementById('modal-service-title');
+            const form = document.getElementById('audit-form');
+            const success = document.getElementById('modal-success');
+
+            if (serviceName) {
+                titleEl.textContent = `Interés en: ${serviceName}`;
+            } else {
+                titleEl.textContent = 'Solicita tu Diagnóstico Operativo';
+            }
+
+            form.classList.remove('hidden');
+            success.classList.add('hidden');
+            modal.classList.remove('hidden');
+        }
+
+        function closeAuditModal() {
+            document.getElementById('audit-modal').classList.add('hidden');
+        }
+
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            document.getElementById('audit-form').classList.add('hidden');
+            document.getElementById('modal-success').classList.remove('hidden');
+        }
+
+        // ROI Calculator Logic
+        const teamInput = document.getElementById('calc-team');
+        const hoursInput = document.getElementById('calc-hours');
+        const costInput = document.getElementById('calc-cost');
+
+        const teamVal = document.getElementById('team-value');
+        const hoursVal = document.getElementById('hours-value');
+        const costVal = document.getElementById('cost-value');
+
+        const resHours = document.getElementById('res-hours');
+        const resSavings = document.getElementById('res-savings');
+
+        function updateCalculator() {
+            const team = parseInt(teamInput.value);
+            const hours = parseInt(hoursInput.value);
+            const cost = parseInt(costInput.value);
+
+            teamVal.textContent = `${team} ${team === 1 ? 'persona' : 'personas'}`;
+            hoursVal.textContent = `${hours} horas`;
+            costVal.textContent = `$${cost} USD`;
+
+            // Calculations
+            const totalMonthlyHours = Math.round(team * hours * 4);
+            const totalMonthlySavings = Math.round(totalMonthlyHours * cost);
+
+            resHours.textContent = `${totalMonthlyHours.toLocaleString()} hrs`;
+            resSavings.textContent = `$${totalMonthlySavings.toLocaleString()} USD`;
+        }
+
+        teamInput.addEventListener('input', updateCalculator);
+        hoursInput.addEventListener('input', updateCalculator);
+        costInput.addEventListener('input', updateCalculator);
+
+        // Initial calc
+        updateCalculator();
+    </script>
+</body>
+</html>
