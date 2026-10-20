@@ -45,8 +45,34 @@
             backdrop-filter: blur(10px);
         }
         .tech-grid {
-            background-image: radial-gradient(rgba(46, 109, 164, 0.15) 1px, transparent 1px);
-            background-size: 24px 24px;
+            background-color: #0a0f1c;
+            background-image:
+                linear-gradient(rgba(0, 210, 255, 0.07) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 210, 255, 0.07) 1px, transparent 1px),
+                radial-gradient(ellipse at top, #0f2744 0%, #0a0f1c 70%);
+            background-size: 40px 40px, 40px 40px, 100% 100%;
+        }
+        .tech-grid-light {
+            background-image:
+                linear-gradient(rgba(46, 109, 164, 0.045) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(46, 109, 164, 0.045) 1px, transparent 1px),
+                radial-gradient(ellipse at top, rgba(0, 210, 255, 0.06), transparent 65%);
+            background-size: 40px 40px, 40px 40px, 100% 100%;
+        }
+        .code-bg {
+            position: absolute;
+            inset: 0;
+            padding: 2rem;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+            font-size: 13px;
+            line-height: 1.7;
+            color: rgba(0, 210, 255, 0.12);
+            white-space: pre;
+            overflow: hidden;
+            pointer-events: none;
+            user-select: none;
+            -webkit-mask-image: linear-gradient(to bottom, #000 0%, transparent 95%);
+            mask-image: linear-gradient(to bottom, #000 0%, transparent 95%);
         }
         .text-gradient {
             background: linear-gradient(135deg, #ffffff 0%, #a5f3fc 50%, #60a5fa 100%);
@@ -118,6 +144,28 @@
 
     <!-- SECCIÓN 1 — HERO -->
     <section class="relative bg-navy text-white overflow-hidden py-16 lg:py-24 tech-grid">
+        <!-- Code background -->
+        <div class="code-bg" aria-hidden="true">import { FastAPI } from "fastapi"
+const app = FastAPI()
+
+@app.post("/automate")
+async def automate(task: Task):
+    result = await ai.run(task)
+    return { "status": "ok", "data": result }
+
+SELECT * FROM workflows WHERE active = true;
+docker compose up -d --build
+git commit -m "feat: automate everything"
+
+function pipeline(steps) {
+  return steps.reduce((acc, fn) => fn(acc), input);
+}
+
+$ npm run deploy   &#10003; done
+{ "backend": true, "ai": true, "automation": "on" }
+try { await sync(crm, erp) } catch (e) { log(e) }
+for (const lead of leads) await notify(lead)
+</div>
         <!-- Ambient background lighting -->
         <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-electric/20 rounded-full blur-3xl pointer-events-none"></div>
 
@@ -214,7 +262,7 @@
     </section>
 
     <!-- SECCIÓN 2 — EL PROBLEMA -->
-    <section id="problema" class="py-20 bg-slate-100">
+    <section id="problema" class="py-20 bg-slate-100 tech-grid-light">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16">
                 <span class="text-electric font-bold text-sm tracking-wider uppercase">Fricción Operativa</span>
@@ -265,7 +313,7 @@
     </section>
 
     <!-- SECCIÓN 3 — MIS SERVICIOS -->
-    <section id="servicios" class="py-20 bg-white">
+    <section id="servicios" class="py-20 bg-white tech-grid-light">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16">
                 <span class="text-electric font-bold text-sm tracking-wider uppercase">Soluciones Directas</span>
@@ -399,7 +447,7 @@
     </section>
 
     <!-- BONUS INTERACTIVE SECTION — CALCULADORA DE AHORRO / ROI -->
-    <section id="calculadora" class="py-16 bg-slate-900 text-white relative">
+    <section id="calculadora" class="py-16 bg-slate-900 text-white relative tech-grid">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="bg-navy rounded-3xl p-8 sm:p-12 border border-slate-700 shadow-2xl">
                 <div class="text-center max-w-2xl mx-auto mb-10">
@@ -460,7 +508,7 @@
     </section>
 
     <!-- SECCIÓN 4 — MI EXPERIENCIA LABORAL Y PROYECTOS -->
-    <section id="experiencia" class="py-20 bg-slate-50">
+    <section id="experiencia" class="py-20 bg-slate-50 tech-grid-light">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16">
                 <span class="text-electric font-bold text-sm tracking-wider uppercase">Respaldo Profesional</span>
@@ -541,7 +589,7 @@
     </section>
 
     <!-- SECCIÓN 5 — RESULTADOS -->
-    <section class="py-16 bg-navy text-white border-y border-navy-light/50">
+    <section class="py-16 bg-navy text-white border-y border-navy-light/50 tech-grid">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center divide-y lg:divide-y-0 lg:divide-x divide-slate-700/60">
                 
@@ -570,7 +618,7 @@
     </section>
 
     <!-- SECCIÓN 6 — PROCESO -->
-    <section id="proceso" class="py-20 bg-white">
+    <section id="proceso" class="py-20 bg-white tech-grid-light">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16">
                 <span class="text-electric font-bold text-sm tracking-wider uppercase">Metodología Clara</span>
@@ -643,7 +691,7 @@
     </section>
 
     <!-- SECCIÓN 7 — SOBRE MÍ -->
-    <section id="sobre-mi" class="py-20 bg-slate-900 text-white relative overflow-hidden">
+    <section id="sobre-mi" class="py-20 bg-slate-900 text-white relative overflow-hidden tech-grid">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                 
@@ -691,7 +739,7 @@
     </section>
 
     <!-- SECCIÓN 8 — TESTIMONIOS -->
-    <section class="py-20 bg-slate-100">
+    <section class="py-20 bg-slate-100 tech-grid-light">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16">
                 <span class="text-electric font-bold text-sm tracking-wider uppercase">Casos Reales</span>
@@ -775,7 +823,7 @@
     </section>
 
     <!-- SECCIÓN 10 — FOOTER -->
-    <footer class="bg-navy-dark text-slate-400 py-12 border-t border-slate-800">
+    <footer class="bg-navy-dark text-slate-400 py-12 border-t border-slate-800 tech-grid">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-12 gap-8 mb-8">
                 
